@@ -76,7 +76,7 @@ Si rien ne marche — option nucléaire :
 
 ```bash
 git fetch --all
-git reset --hard origin/master
+git reset --hard origin/main
 ```
 
 > **Attention** : ceci écrase toutes vos modifications (sauf les fichiers `perso*`).
