@@ -19,10 +19,12 @@ process.exit();
 
 // --- WAT #3 : objet + tableau ---
 console.log("{} + []  =", {} + []);
+// Testez dans la console du navigateur ou node : {} + [] donne 0 !
 process.exit();
 
 // --- WAT #4 : objet + objet ---
 console.log("{} + {}  =", {} + {});
+// Testez dans la console du navigateur ou node : {} + {} donne NaN !
 process.exit();
 
 // --- WAT #5 : le + unaire sur un tableau vide ---
