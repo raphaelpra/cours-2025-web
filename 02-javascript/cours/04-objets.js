@@ -15,6 +15,8 @@ const etudiant = {
 console.log(`nom: ${etudiant.nom}`);
 console.log(`langages: ${etudiant.langages}`);
 
+process.exit();
+
 // Ajouter une propriété
 etudiant.email = "alice@mines-paris.fr";
 

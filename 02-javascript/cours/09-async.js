@@ -27,6 +27,7 @@ console.log(`😄 ${joke.setup}`);
 console.log(`   → ${joke.punchline}`);
 console.log();
 
+process.exit();
 
 // ------------------------------------------
 // 3. Anatomie d'un fetch

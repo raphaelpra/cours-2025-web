@@ -40,6 +40,9 @@ class Chien extends Animal {
 
 const rex = new Chien("Rex", "berger allemand");
 console.log(rex.sePresenter());
+
+process.exit();
+
 rex.aboyer();
 rex.aboyer();
 console.log(`Os rongés : ${rex.os}`);

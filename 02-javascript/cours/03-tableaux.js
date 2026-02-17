@@ -8,6 +8,8 @@ console.log(`fruits: ${fruits}`);
 console.log(`longueur: ${fruits.length}`);
 console.log(`premier: ${fruits[0]}, dernier: ${fruits[fruits.length - 1]}`);
 
+process.exit();
+
 // Ajouter / retirer
 fruits.push("mangue");       // ajouter à la fin
 const dernier = fruits.pop(); // retirer le dernier

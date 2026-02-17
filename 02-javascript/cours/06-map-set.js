@@ -1,5 +1,5 @@
 // ============================================
-// 06 — Map, Set et pièges classiques
+// 06 — Map et Set
 // Exécuter avec : bun run cours/06-map-set.js
 // ============================================
 
@@ -21,6 +21,8 @@ for (const [nom, score] of scores) {
     console.log(`  ${nom}: ${score}`);
 }
 
+process.exit();
+
 // ------------------------------------------
 // Set — pas de doublons
 // ------------------------------------------
@@ -31,23 +33,3 @@ const unique = new Set([1, 2, 3, 2, 1, 4]);
 console.log(`Set: ${[...unique]}`);  // [1, 2, 3, 4]
 unique.add(5);
 console.log(`Contient 3 ? ${unique.has(3)}`);
-
-
-// ------------------------------------------
-// Quelques pièges classiques
-// ------------------------------------------
-
-console.log("\n--- Pièges ---");
-
-// typeof null
-console.log(`typeof null = "${typeof null}"`);  // "object" — bug historique
-
-// NaN
-console.log(`3 * "abc" = ${3 * "abc"}`);  // NaN
-console.log(`NaN === NaN ? ${NaN === NaN}`);  // false !
-console.log(`isNaN(NaN) ? ${isNaN(NaN)}`);   // true — utiliser isNaN()
-
-// Coercion de type
-console.log(`"5" + 3 = "${"5" + 3}"`);    // "53" (concaténation)
-console.log(`"5" - 3 = ${"5" - 3}`);       // 2 (conversion en nombre)
-// Morale : toujours utiliser === et être explicite sur les types

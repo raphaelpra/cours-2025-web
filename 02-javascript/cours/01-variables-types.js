@@ -16,6 +16,7 @@ console.log(`Cours : ${NOM_DU_COURS}, compteur : ${compteur}`);
 // ⚠️ Ne JAMAIS utiliser var — préférer let ou const
 // var est l'ancienne syntaxe, elle a des comportements surprenants
 
+process.exit();
 
 // ------------------------------------------
 // 2. Types de données
@@ -53,13 +54,3 @@ console.log(`typeof 42 = ${typeof 42}`);
 console.log(`typeof "hello" = ${typeof "hello"}`);
 console.log(`typeof true = ${typeof true}`);
 console.log(`typeof null = ${typeof null}`);  // "object" — un bug historique !
-
-
-// ------------------------------------------
-// 3. == vs === (toujours utiliser ===)
-// ------------------------------------------
-
-console.log("\n--- == vs === ---");
-console.log(`10 == "10"  → ${10 == "10"}`);    // true  (conversion automatique)
-console.log(`10 === "10" → ${10 === "10"}`);   // false (types différents)
-// Règle : TOUJOURS utiliser === pour éviter les surprises

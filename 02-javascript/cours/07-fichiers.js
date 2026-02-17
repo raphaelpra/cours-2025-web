@@ -20,6 +20,7 @@ console.log(`Premières lignes :`);
 console.log(contenu.split("\n").slice(0, 5).join("\n"));
 console.log("...\n");
 
+process.exit();
 
 // ------------------------------------------
 // 2. Écrire un fichier

@@ -9,6 +9,8 @@ function saluer(nom) {
 }
 console.log(saluer("Bob"));
 
+process.exit();
+
 // Arrow function (similaire à lambda en Python)
 const carre = (x) => x * x;
 console.log(`carré de 7 = ${carre(7)}`);
