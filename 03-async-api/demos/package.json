@@ -1,0 +1,12 @@
+{
+  "name": "async-demos",
+  "private": true,
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "scripts": {
+    "build": "bun build app.jsx --outfile bundle.js",
+    "dev": "bun run build && bun index.html"
+  }
+}
