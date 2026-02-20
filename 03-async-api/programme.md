@@ -180,5 +180,7 @@ Les élèves suivent le document étape par étape :
 
 - [ ] Terminer le TP Wikipedia si pas fini (au minimum jusqu'à l'étape 2)
 - [ ] Lire [L'asynchronisme en JS](https://frontend.info-mines.paris/async-nb/) — reprend les concepts vus en cours
+- [ ] Faire [Flexbox Froggy](https://flexboxfroggy.com/#fr) — les 24 niveaux (jeu pour apprendre flexbox)
+- [ ] *(optionnel)* [Grid Garden](https://cssgridgarden.com/#fr) — même principe pour CSS Grid
 - [ ] *(optionnel)* Étape 3 (Promise.all) + bonus du TP
 - [ ] *(optionnel)* Explorer d'autres packages sur [npmjs.com](https://www.npmjs.com/)
