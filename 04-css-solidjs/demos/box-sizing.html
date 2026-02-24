@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1117;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --red: #ef4444;
+            --red-dim: rgba(239, 68, 68, 0.15);
+            --green: #22c55e;
+            --green-dim: rgba(34, 197, 94, 0.15);
+            --amber: #f59e0b;
+            --blue: #3b82f6;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 2rem;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .title-prop { color: var(--blue); }
+        .title-val-1 { color: var(--red); }
+        .title-val-2 { color: var(--green); }
+
+        /* Code Block */
+        .code-container {
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .code-line {
+            display: block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            color: var(--text-muted);
+        }
+
+        .code-line.active {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        .token-prop { color: #93c5fd; }
+        .token-val { color: #fca5a5; }
+        .token-val-num { color: #fcd34d; }
+
+        /* Diagrams Container */
+        .diagrams {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .diagram-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 280px;
+        }
+
+        .diagram-title {
+            font-family: var(--font-mono);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .diagram-title.content { color: var(--red); }
+        .diagram-title.border { color: var(--green); }
+
+        svg {
+            width: 280px;
+            height: 200px;
+            background: #1e293b;
+            border-radius: 8px;
+            overflow: visible;
+        }
+
+        /* SVG Elements */
+        rect, line, path, text {
+            transition: all var(--transition);
+        }
+
+        .rect-content { stroke-width: 2; }
+        .rect-padding { stroke-width: 2; stroke-dasharray: 4 4; fill: none; }
+        .rect-border { stroke-width: 2; fill: none; }
+
+        .content-box .rect-content { stroke: var(--red); fill: var(--red-dim); }
+        .content-box .rect-padding { stroke: var(--text-muted); }
+        .content-box .rect-border { stroke: var(--amber); }
+
+        .border-box .rect-content { stroke: var(--green); fill: var(--green-dim); }
+        .border-box .rect-padding { stroke: var(--text-muted); }
+        .border-box .rect-border { stroke: var(--amber); }
+
+        .arrow-line { stroke: var(--text); stroke-width: 1.5; marker-end: url(#arrowhead); marker-start: url(#arrowtail); fill: none; }
+        .arrow-text { fill: var(--text); font-size: 12px; font-family: var(--font-mono); text-anchor: middle; }
+        
+        .label-text { fill: var(--text-muted); font-size: 10px; font-family: var(--font-mono); text-anchor: end; }
+
+        .info-text {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            min-height: 3.5em;
+        }
+        .info-highlight-red { color: var(--red); font-weight: bold; }
+        .info-highlight-green { color: var(--green); font-weight: bold; }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background: #374151;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button:hover { background: #4b5563; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        button.active { background: var(--blue); }
+
+        .dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4b5563;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active { background: var(--blue); transform: scale(1.2); }
+
+        /* Description */
+        .description {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 600px;
+            min-height: 3em;
+            margin-bottom: 1rem;
+        }
+
+        .summary-banner {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #334155;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s;
+        }
+        .summary-banner.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 640px) {
+            .diagrams { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <span class="title-prop">box-sizing</span> : 
+        <span class="title-val-1">content-box</span> vs 
+        <span class="title-val-2">border-box</span>
+    </h1>
+
+    <div class="code-container">
+        <span class="code-line" id="line-1">.box {</span>
+        <span class="code-line" id="line-2">  <span class="token-prop">width</span>: <span class="token-val-num">200px</span>;</span>
+        <span class="code-line" id="line-3">  <span class="token-prop">height</span>: <span class="token-val-num">100px</span>;</span>
+        <span class="code-line" id="line-4">  <span class="token-prop">padding</span>: <span class="token-val-num">20px</span>;</span>
+        <span class="code-line" id="line-5">  <span class="token-prop">border</span>: <span class="token-val-num">4px</span> solid gold;</span>
+        <span class="code-line" id="line-6">}</span>
+    </div>
+
+    <div class="description" id="step-desc">
+        Description goes here...
+    </div>
+
+    <div class="controls">
+        <button id="btn-prev" onclick="prevStep()">◀ Préc</button>
+        <div class="dots" id="dots-container">
+            <!-- Dots generated by JS -->
+        </div>
+        <button id="btn-next" onclick="nextStep()">Suiv ▶</button>
+        <button id="btn-auto" onclick="toggleAuto()">▶ Auto</button>
+    </div>
+
+    <div class="diagrams">
+        <!-- Content Box Diagram -->
+        <div class="diagram-box content-box">
+            <div class="diagram-title content">content-box (défaut)</div>
+            <svg viewBox="0 0 280 200">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#e5e7eb" />
+                    </marker>
+                    <marker id="arrowtail" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#e5e7eb" />
+                    </marker>
+                </defs>
+                
+                <!-- Center is 140, 100 -->
+                <rect class="rect-border" id="cb-border" x="40" y="50" width="200" height="100" rx="2"></rect>
+                <rect class="rect-padding" id="cb-padding" x="40" y="50" width="200" height="100" rx="2"></rect>
+                <rect class="rect-content" id="cb-content" x="40" y="50" width="200" height="100" rx="2"></rect>
+                
+                <path class="arrow-line" id="cb-arrow" d="M40,30 L240,30"></path>
+                <text class="arrow-text" id="cb-arrow-text" x="140" y="25">200px</text>
+                
+                <text class="label-text" id="cb-label" x="235" y="145">200×100</text>
+            </svg>
+            <div class="info-text" id="cb-info">
+                width déclarée: 200px
+            </div>
+        </div>
+
+        <!-- Border Box Diagram -->
+        <div class="diagram-box border-box">
+            <div class="diagram-title border">border-box</div>
+            <svg viewBox="0 0 280 200">
+                <rect class="rect-border" id="bb-border" x="40" y="50" width="200" height="100" rx="2"></rect>
+                <rect class="rect-padding" id="bb-padding" x="40" y="50" width="200" height="100" rx="2"></rect>
+                <rect class="rect-content" id="bb-content" x="40" y="50" width="200" height="100" rx="2"></rect>
+                
+                <path class="arrow-line" id="bb-arrow" d="M40,30 L240,30"></path>
+                <text class="arrow-text" id="bb-arrow-text" x="140" y="25">200px</text>
+                
+                <text class="label-text" id="bb-label" x="235" y="145">200×100</text>
+            </svg>
+            <div class="info-text" id="bb-info">
+                width déclarée: 200px
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-banner" id="summary">
+        <span style="color: var(--green); font-weight: bold;">border-box</span> garde la largeur totale à 200px comme déclaré.<br>
+        <span style="color: var(--red); font-weight: bold;">content-box</span> déborde à 248px — padding et bordure s'ajoutent !
+    </div>
+
+    <script>
+        const steps = [
+            {
+                text: "On déclare une boîte de 200×100px avec 20px de padding et 4px de bordure.",
+                highlight: [2, 3],
+                cb: { w: 200, h: 100, pw: 200, ph: 100, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "200×100", info: "width déclarée: 200px" },
+                bb: { w: 200, h: 100, pw: 200, ph: 100, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "200×100", info: "width déclarée: 200px" },
+                showSummary: false
+            },
+            {
+                text: "Les deux modèles partent de width: 200px.",
+                highlight: [2],
+                cb: { w: 200, h: 100, pw: 200, ph: 100, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "200×100", info: "width déclarée: 200px" },
+                bb: { w: 200, h: 100, pw: 200, ph: 100, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "200×100", info: "width déclarée: 200px" },
+                showSummary: false
+            },
+            {
+                text: "On ajoute padding: 20px…",
+                highlight: [4],
+                cb: { w: 200, h: 100, pw: 240, ph: 140, bw: 240, bh: 140, arrow: 240, arrowText: "Total: 240px", label: "pad 20px", info: "width: 200px<br>total: <span class='info-highlight-red'>240px</span>" },
+                bb: { w: 160, h: 60, pw: 200, ph: 100, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "pad 20px", info: "width: 200px<br>total: <span class='info-highlight-green'>200px</span>" },
+                showSummary: false
+            },
+            {
+                text: "Puis border: 4px…",
+                highlight: [5],
+                cb: { w: 200, h: 100, pw: 240, ph: 140, bw: 248, bh: 148, arrow: 248, arrowText: "Total: 248px", label: "border 4px", info: "width: 200px<br>total: <span class='info-highlight-red'>248px ⚠️</span>" },
+                bb: { w: 152, h: 52, pw: 192, ph: 92, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "border 4px", info: "width: 200px<br>total: <span class='info-highlight-green'>200px ✓</span>" },
+                showSummary: false
+            },
+            {
+                text: "Voilà la différence !",
+                highlight: [],
+                cb: { w: 200, h: 100, pw: 240, ph: 140, bw: 248, bh: 148, arrow: 248, arrowText: "Total: 248px", label: "border 4px", info: "width: 200px<br>total: <span class='info-highlight-red'>248px ⚠️</span>" },
+                bb: { w: 152, h: 52, pw: 192, ph: 92, bw: 200, bh: 100, arrow: 200, arrowText: "Total: 200px", label: "border 4px", info: "width: 200px<br>total: <span class='info-highlight-green'>200px ✓</span>" },
+                showSummary: true
+            }
+        ];
+
+        let currentStep = 0;
+        let autoInterval = null;
+
+        function init() {
+            const dotsContainer = document.getElementById('dots-container');
+            steps.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.onclick = () => goToStep(i);
+                dotsContainer.appendChild(dot);
+            });
+            update();
+        }
+
+        function update() {
+            const step = steps[currentStep];
+            
+            // Text
+            document.getElementById('step-desc').textContent = step.text;
+            
+            // Code Highlight
+            document.querySelectorAll('.code-line').forEach(el => el.classList.remove('active'));
+            step.highlight.forEach(line => {
+                document.getElementById(`line-${line}`).classList.add('active');
+            });
+
+            // Dots
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentStep);
+            });
+
+            // Buttons
+            document.getElementById('btn-prev').disabled = currentStep === 0;
+            document.getElementById('btn-next').disabled = currentStep === steps.length - 1;
+
+            // Summary
+            document.getElementById('summary').classList.toggle('visible', step.showSummary);
+
+            // Update Diagrams
+            updateBox('cb', step.cb);
+            updateBox('bb', step.bb);
+        }
+
+        function updateBox(prefix, data) {
+            const cx = 140;
+            const cy = 100;
+
+            // Content
+            setRect(prefix + '-content', cx, cy, data.w, data.h);
+            // Padding
+            setRect(prefix + '-padding', cx, cy, data.pw, data.ph);
+            // Border
+            setRect(prefix + '-border', cx, cy, data.bw, data.bh);
+
+            // Arrow (Path)
+            const arrow = document.getElementById(prefix + '-arrow');
+            const x1 = cx - data.arrow / 2;
+            const x2 = cx + data.arrow / 2;
+            const d = `M${x1},30 L${x2},30`;
+            
+            arrow.style.d = `path("${d}")`; // CSS transition for path
+            arrow.setAttribute('d', d); // Fallback
+            
+            const arrowText = document.getElementById(prefix + '-arrow-text');
+            arrowText.textContent = data.arrowText;
+
+            // Label
+            const label = document.getElementById(prefix + '-label');
+            label.textContent = data.label;
+            // Position label at bottom right of the largest box
+            const lx = cx + data.bw / 2;
+            const ly = cy + data.bh / 2 + 15;
+            
+            label.style.x = lx + 'px';
+            label.style.y = ly + 'px';
+            label.setAttribute('x', lx);
+            label.setAttribute('y', ly);
+
+            // Info
+            document.getElementById(prefix + '-info').innerHTML = data.info;
+        }
+
+        function setRect(id, cx, cy, w, h) {
+            const rect = document.getElementById(id);
+            rect.style.width = w + 'px'; // Use CSS for transition
+            rect.style.height = h + 'px';
+            rect.style.x = (cx - w / 2) + 'px';
+            rect.style.y = (cy - h / 2) + 'px';
+            
+            // Also set attributes for compatibility/initial render
+            rect.setAttribute('width', w);
+            rect.setAttribute('height', h);
+            rect.setAttribute('x', cx - w / 2);
+            rect.setAttribute('y', cy - h / 2);
+        }
+
+        function nextStep() {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                update();
+            } else {
+                stopAuto();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                update();
+            }
+        }
+
+        function goToStep(i) {
+            currentStep = i;
+            update();
+            stopAuto();
+        }
+
+        function toggleAuto() {
+            if (autoInterval) {
+                stopAuto();
+            } else {
+                startAuto();
+            }
+        }
+
+        function startAuto() {
+            const btn = document.getElementById('btn-auto');
+            btn.textContent = "⏸ Stop";
+            btn.classList.add('active');
+            
+            if (currentStep === steps.length - 1) currentStep = -1; // Loop if at end
+            
+            // Immediate next if restarting
+            if (currentStep === -1) {
+                currentStep = 0;
+                update();
+            }
+
+            autoInterval = setInterval(() => {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    update();
+                } else {
+                    // Loop or stop? Let's loop for "Auto"
+                    currentStep = 0;
+                    update();
+                }
+            }, 2500);
+        }
+
+        function stopAuto() {
+            clearInterval(autoInterval);
+            autoInterval = null;
+            const btn = document.getElementById('btn-auto');
+            btn.textContent = "▶ Auto";
+            btn.classList.remove('active');
+        }
+
+        // Init
+        init();
+
+    </script>
+</body>
+</html>

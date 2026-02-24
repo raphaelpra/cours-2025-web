@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS — La douleur du DOM</title>
+    <style>
+        body { font-family: system-ui; max-width: 600px; margin: 2rem auto; }
+        .card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; }
+        button { padding: 0.5rem 1rem; cursor: pointer; margin: 0.25rem; }
+    </style>
+</head>
+<body>
+    <h1>Liste de courses (Vanilla JS)</h1>
+    <p>Regardez combien de code il faut pour une simple liste interactive :</p>
+    <div id="app"></div>
+
+    <script>
+        // ========================================
+        // 😰 Vanilla JS — construire une UI à la main
+        // ========================================
+
+        const app = document.getElementById("app");
+
+        // --- L'input + bouton pour ajouter ---
+        const form = document.createElement("div");
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = "Ajouter un article...";
+        form.appendChild(input);
+
+        const addBtn = document.createElement("button");
+        addBtn.textContent = "Ajouter";
+        form.appendChild(addBtn);
+
+        app.appendChild(form);
+
+        // --- Le compteur ---
+        const counter = document.createElement("p");
+        counter.textContent = "0 articles";
+        app.appendChild(counter);
+
+        // --- La liste ---
+        const list = document.createElement("ul");
+        app.appendChild(list);
+
+        // --- La logique ---
+        let items = [];
+
+        function render() {
+            counter.textContent = `${items.length} article${items.length > 1 ? "s" : ""}`;
+            list.innerHTML = "";
+            items.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.className = "card";
+
+                const span = document.createElement("span");
+                span.textContent = item;
+                li.appendChild(span);
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "🗑️";
+                deleteBtn.addEventListener("click", () => {
+                    items.splice(index, 1);
+                    render();
+                });
+                li.appendChild(deleteBtn);
+
+                list.appendChild(li);
+            });
+        }
+
+        addBtn.addEventListener("click", () => {
+            if (input.value.trim()) {
+                items.push(input.value.trim());
+                input.value = "";
+                render();
+            }
+        });
+
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && input.value.trim()) {
+                items.push(input.value.trim());
+                input.value = "";
+                render();
+            }
+        });
+
+        render();
+
+        // ========================================
+        // 😰 ~70 lignes pour une simple liste !
+        // createElement, appendChild, addEventListener...
+        // Et on n'a même pas géré l'édition, le tri, etc.
+        //
+        // 😎 En SolidJS, la même chose fait ~20 lignes.
+        //    On va le voir juste après.
+        // ========================================
+    </script>
+</body>
+</html>
