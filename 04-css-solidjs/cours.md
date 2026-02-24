@@ -253,7 +253,7 @@ import "./App.css";
 
 `box-sizing: border-box` est la première ligne de tout projet CSS sérieux.
 
-👉 **Animation interactive** : [content-box vs border-box](https://claude.ai/public/artifacts/26e83c72-59e7-4a3a-af09-702de2d7cc03)
+👉 **Animation interactive** : [content-box vs border-box](https://claude.ai/public/artifacts/52fe40d8-e583-4738-a196-59d76fe5841a)
 
 #### Le problème : `content-box` (par défaut)
 

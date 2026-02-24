@@ -13,41 +13,29 @@
 <body>
     <h1>Liste de courses (Vanilla JS)</h1>
     <p>Regardez combien de code il faut pour une simple liste interactive :</p>
-    <div id="app"></div>
+
+    <!-- La partie statique, en HTML normal -->
+    <div id="app">
+        <div>
+            <input type="text" placeholder="Ajouter un article...">
+            <button id="add-btn">Ajouter</button>
+        </div>
+        <p id="counter">0 articles</p>
+        <ul id="list"></ul>
+    </div>
 
     <script>
         // ========================================
         // 😰 Vanilla JS — construire une UI à la main
         // ========================================
 
-        const app = document.getElementById("app");
+        const input = document.querySelector("input");
+        const counter = document.getElementById("counter");
+        const list = document.getElementById("list");
 
-        // --- L'input + bouton pour ajouter ---
-        const form = document.createElement("div");
-
-        const input = document.createElement("input");
-        input.type = "text";
-        input.placeholder = "Ajouter un article...";
-        form.appendChild(input);
-
-        const addBtn = document.createElement("button");
-        addBtn.textContent = "Ajouter";
-        form.appendChild(addBtn);
-
-        app.appendChild(form);
-
-        // --- Le compteur ---
-        const counter = document.createElement("p");
-        counter.textContent = "0 articles";
-        app.appendChild(counter);
-
-        // --- La liste ---
-        const list = document.createElement("ul");
-        app.appendChild(list);
-
-        // --- La logique ---
         let items = [];
 
+        // --- Reconstruire toute la liste à chaque changement ---
         function render() {
             counter.textContent = `${items.length} article${items.length > 1 ? "s" : ""}`;
             list.innerHTML = "";
@@ -71,26 +59,24 @@
             });
         }
 
-        addBtn.addEventListener("click", () => {
+        // --- Ajouter un article ---
+        function addItem() {
             if (input.value.trim()) {
                 items.push(input.value.trim());
                 input.value = "";
                 render();
             }
-        });
+        }
 
+        document.getElementById("add-btn").addEventListener("click", addItem);
         input.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" && input.value.trim()) {
-                items.push(input.value.trim());
-                input.value = "";
-                render();
-            }
+            if (e.key === "Enter") addItem();
         });
 
         render();
 
         // ========================================
-        // 😰 ~70 lignes pour une simple liste !
+        // 😰 ~50 lignes de JS pour une simple liste !
         // createElement, appendChild, addEventListener...
         // Et on n'a même pas géré l'édition, le tri, etc.
         //
