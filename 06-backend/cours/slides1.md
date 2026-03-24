@@ -1330,7 +1330,7 @@ class: middle, center
 
 💻 **À vous de jouer !**
 
-📄 [TD 1 — Votre premier serveur](td/01-premier-server.md)
+📄 [TD 1 — Votre premier serveur](https://github.com/raphaelpra/cours-2025-web/blob/main/06-backend/cours/td/01-premier-server.md)
 
 Ce TD vous guide pour créer pas à pas votre premier serveur HTTP avec Bun.
 
@@ -1371,7 +1371,7 @@ La fonction `fetch(request)` reçoit une `Request` et renvoie une `Response`.
 
 # Routes et méthodes
 
-📄 [Suite du TD 1 — Routes et méthodes](td/01-premier-server.md#étape-2--ajouter-une-route)
+📄 [Suite du TD 1 — Routes et méthodes](https://github.com/raphaelpra/cours-2025-web/blob/main/06-backend/cours/td/01-premier-server.md#étape-2--ajouter-une-route)
 
 .cols[
 .fifty[
