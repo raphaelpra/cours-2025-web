@@ -349,7 +349,7 @@ Comment je fais pour connaître mon IP ?
 
 Je demande à un site extérieur
 
-📄 [`cours/snippets/get-public-ip.js`](cours/snippets/get-public-ip.js)
+📄 [`snippets/get-public-ip.js`](snippets/get-public-ip.js)
 
 ```javascript
 const response = await fetch(
@@ -368,7 +368,7 @@ $ bun run my-public-ip.js
 .fifty[
 Je demande à mon OS
 
-📄 [`cours/snippets/get-local-ip.js`](cours/snippets/get-local-ip.js)
+📄 [`snippets/get-local-ip.js`](snippets/get-local-ip.js)
 
 ```javascript
 import os from "node:os"
@@ -493,7 +493,7 @@ PING oasis.minesparis.psl.eu (91.134.82.158) ...
 
 Ou depuis Bun/Node.js :
 
-📄 [`cours/snippets/dns-lookup.js`](cours/snippets/dns-lookup.js)
+📄 [`snippets/dns-lookup.js`](snippets/dns-lookup.js)
 
 ```javascript
 import { lookup } from "node:dns/promises"
@@ -793,7 +793,7 @@ Via JavaScript c'est facile !
 .cols[
 .fifty[
 
-📄 [`cours/snippets/json-serialize.js`](cours/snippets/json-serialize.js)
+📄 [`snippets/json-serialize.js`](snippets/json-serialize.js)
 
 ```javascript
 const data = {
@@ -806,7 +806,7 @@ const serialized = JSON.stringify(data)
 ]
 .fifty[
 
-📄 [`cours/snippets/json-parse.js`](cours/snippets/json-parse.js)
+📄 [`snippets/json-parse.js`](snippets/json-parse.js)
 
 ```javascript
 const serialized = '{"name": "Ada Lovelace", "age": 36}'
@@ -885,7 +885,7 @@ En gros c'est pour dire que l'on veut faire une requête de type `GET`. Il exist
 
 En JavaScript, `fetch` est disponible nativement — dans le navigateur comme dans Bun 🎉
 
-📄 [`cours/snippets/fetch-get.js`](cours/snippets/fetch-get.js)
+📄 [`snippets/fetch-get.js`](snippets/fetch-get.js)
 
 ```javascript
 const response = await fetch("https://httpbin.org/get")
@@ -899,7 +899,7 @@ $ bun run cours/snippets/fetch-get.js
 
 --
 
-📄 [`cours/snippets/fetch-post.js`](cours/snippets/fetch-post.js)
+📄 [`snippets/fetch-post.js`](snippets/fetch-post.js)
 
 ```javascript
 const response = await fetch("https://httpbin.org/post", {
@@ -1239,7 +1239,7 @@ Considérons un serveur générant des nombres aléatoires à la demande. L'API 
 
 Avec Bun, ça donnerait :
 
-📄 [`cours/snippets/random-api-server.js`](cours/snippets/random-api-server.js)
+📄 [`snippets/random-api-server.js`](snippets/random-api-server.js)
 
 ```javascript
 Bun.serve({
@@ -1328,7 +1328,7 @@ class: middle, center
 
 # Premier serveur avec Bun
 
-📄 [`cours/snippets/random-api-server.js`](cours/snippets/random-api-server.js)
+📄 [`snippets/random-api-server.js`](snippets/random-api-server.js)
 
 ```javascript
 Bun.serve({
@@ -1368,7 +1368,7 @@ La fonction `fetch(request)` reçoit une `Request` et renvoie une `Response`.
 
 # Routes et méthodes
 
-📄 [`cours/snippets/random-api-server.js`](cours/snippets/random-api-server.js)
+📄 [`snippets/random-api-server.js`](snippets/random-api-server.js)
 
 ```javascript
 Bun.serve({
@@ -1394,7 +1394,7 @@ On choisit quoi répondre selon l'**URL** et la **méthode HTTP**.
 
 # Un formulaire HTML servi par Bun
 
-📄 [`cours/snippets/serve-html-form.js`](cours/snippets/serve-html-form.js)
+📄 [`snippets/serve-html-form.js`](snippets/serve-html-form.js)
 
 ```javascript
 if (url.pathname === "/contact") {
@@ -1421,7 +1421,7 @@ Le navigateur s'occupe de tout : construire le body, envoyer la requête au bon 
 
 # Recevoir un formulaire côté serveur
 
-📄 [`cours/snippets/receive-form-post.js`](cours/snippets/receive-form-post.js)
+📄 [`snippets/receive-form-post.js`](snippets/receive-form-post.js)
 
 ```javascript
 if (url.pathname === "/submit" && request.method === "POST") {
@@ -1449,7 +1449,7 @@ formulaire HTML → body HTTP → `request.formData()` → validation → répon
 
 # Sauvegarder des soumissions
 
-📄 [`cours/snippets/save-submissions.js`](cours/snippets/save-submissions.js)
+📄 [`snippets/save-submissions.js`](snippets/save-submissions.js)
 
 ```javascript
 const dataFile = "./submissions.json"
@@ -1475,7 +1475,7 @@ Pour le cours, un fichier JSON local suffit. Ce n'est pas la solution la plus ro
 
 # Exposer une API JSON
 
-📄 [`cours/snippets/json-api-route.js`](cours/snippets/json-api-route.js)
+📄 [`snippets/json-api-route.js`](snippets/json-api-route.js)
 
 ```javascript
 if (url.pathname === "/api/submissions" && request.method === "GET") {
@@ -1496,7 +1496,7 @@ curl http://localhost:3000/api/submissions
 .fifty[
 Tester avec fetch (navigateur ou Bun) :
 
-📄 [`cours/snippets/fetch-api.js`](cours/snippets/fetch-api.js)
+📄 [`snippets/fetch-api.js`](snippets/fetch-api.js)
 
 ```javascript
 const res = await fetch(
@@ -1522,7 +1522,7 @@ Le serveur décide du format selon la route.
 
 Pour montrer que le réseau ne se résume pas à HTTP, voici un serveur UDP minimal :
 
-📄 [`cours/snippets/udp-server.js`](cours/snippets/udp-server.js)
+📄 [`snippets/udp-server.js`](snippets/udp-server.js)
 
 ```javascript
 import { createSocket } from "node:dgram"
