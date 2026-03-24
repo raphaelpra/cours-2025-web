@@ -15,7 +15,9 @@ touch 06-backend/perso/td1-server.js
 
 ---
 
-## Étape 1 — Serveur minimal
+## Étape 1 — Serveur minimal ✅ (Fait en cours)
+
+> **Cette étape sera réalisée ensemble lors du cours.**
 
 Créez un serveur qui écoute sur le port **3000** et répond `Bonjour !` à toutes les requêtes.
 
@@ -32,7 +34,9 @@ Puis ouvrez : `http://localhost:3000`
 
 ---
 
-## Étape 2 — Ajouter une route
+## Étape 2 — Ajouter une route ⭐ (Début du TD)
+
+**Le TD commence ici !**
 
 Modifiez votre serveur pour qu'il réponde différemment selon l'URL :
 
