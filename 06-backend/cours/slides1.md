@@ -893,6 +893,10 @@ const data = await response.json()
 console.log(data)
 ```
 
+```bash
+$ bun run cours/snippets/fetch-get.js
+```
+
 --
 
 📄 [`cours/snippets/fetch-post.js`](cours/snippets/fetch-post.js)
@@ -905,6 +909,10 @@ const response = await fetch("https://httpbin.org/post", {
 })
 const result = await response.json()
 console.log(result)
+```
+
+```bash
+$ bun run cours/snippets/fetch-post.js
 ```
 
 .center[
