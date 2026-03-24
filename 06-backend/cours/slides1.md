@@ -1327,6 +1327,48 @@ class: middle, center
 
 ---
 
+# Anatomy d'un serveur Bun
+
+## Le "Hello World" expliqué
+
+```javascript
+Bun.serve({
+  port: 3000,           // ← Le port d'écoute
+  fetch(request) {      // ← Fonction appelée à chaque requête
+    return new Response("Hello !")  // ← La réponse envoyée
+  },
+})
+
+console.log("Server on http://localhost:3000")
+```
+
+--
+
+.cols[
+.fifty[
+
+### 🔍 Ce qui se passe :
+
+1. `Bun.serve()` démarre le serveur
+2. Le serveur **écoute** sur le port 3000
+3. À chaque requête → `fetch()` est appelée
+4. `fetch` reçoit une `Request` → renvoie une `Response`
+
+]
+.fifty[
+
+### 💡 Analogie :
+
+- **Port** = numéro de porte d'entrée
+- **fetch** = réceptionniste qui reçoit les visiteurs
+- **Request** = la demande du visiteur
+- **Response** = la réponse qu'on lui donne
+
+]
+]
+
+---
+
 # Premier serveur avec Bun
 
 💻 **À vous de jouer !**
