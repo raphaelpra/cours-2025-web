@@ -1280,17 +1280,23 @@ Bun.serve({
 
 **Le repo de ce cours :**
 
-[github.com/raphaelpra/cours-2025-web](https://github.com/raphaelpra/cours-2025-web)
+<br>
 
-⭐ **Ajoutez une étoile !**
+<a href="https://github.com/raphaelpra/cours-2025-web" target="_blank" style="text-decoration: none; display: block; background: #24292e; color: white; padding: 20px; border-radius: 12px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+  <div style="font-size: 18px; margin-bottom: 15px;">github.com/raphaelpra/cours-2025-web</div>
+  
+  <div style="display: inline-flex; align-items: center; gap: 8px; background: #3fb950; color: white; padding: 12px 24px; border-radius: 8px; font-size: 24px; font-weight: bold;">
+    <svg height="32" viewBox="0 0 16 16" width="32" fill="white"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25z"/></svg>
+    <span id="star-count">⭐</span>
+    <span>étoiles</span>
+  </div>
+  
+  <div style="margin-top: 15px; font-size: 14px; color: #8b949e;">Cliquez pour ajouter une ⭐ !</div>
+</a>
 
-Actualisez la page → le compteur change.
+<br>
 
-```markdown
-![stars](https://img.shields.io/github/stars/raphaelpra/cours-2025-web)
-```
-
-<img src="https://img.shields.io/github/stars/raphaelpra/cours-2025-web?style=social" alt="GitHub stars">
+.center[Actualisez la page (F5) → le compteur se met à jour]
 
 ]
 ]
@@ -1330,7 +1336,7 @@ class: middle, center
 
 💻 **À vous de jouer !**
 
-📄 [TD 1 — Votre premier serveur](td-01-premier-server.md)
+📄 [TD 1 — Votre premier serveur](td/01-premier-server.md)
 
 Ce TD vous guide pour créer pas à pas votre premier serveur HTTP avec Bun.
 
@@ -1371,7 +1377,7 @@ La fonction `fetch(request)` reçoit une `Request` et renvoie une `Response`.
 
 # Routes et méthodes
 
-📄 [Suite du TD 1 — Routes et méthodes](td-01-premier-server.md#étape-2--ajouter-une-route)
+📄 [Suite du TD 1 — Routes et méthodes](td/01-premier-server.md#étape-2--ajouter-une-route)
 
 .cols[
 .fifty[
