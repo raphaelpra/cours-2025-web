@@ -1260,13 +1260,42 @@ Bun.serve({
 
 # Par exemple
 
-.center[Générer quelques statistiques sur GitHub]
+## API temps réel : GitHub Stats
+
+.center[Les données changent en temps réel ✨]
+
+.cols[
+.fifty[
+
+**Mon profil GitHub :**
 
 ```markdown
-![stats](https://github-readme-stats.vercel.app/api?username=raphaelpra&show_icons=true&theme=dark)
+![stats](https://github-readme-stats.vercel.app/api?username=raphaelpra)
 ```
 
 ![Raphael's GitHub stats](https://github-readme-stats.vercel.app/api?username=raphaelpra&count_private=true&show_icons=true&theme=dark)
+
+]
+.fifty[
+
+**Le repo de ce cours :**
+
+[github.com/raphaelpra/cours-2025-web](https://github.com/raphaelpra/cours-2025-web)
+
+⭐ **Ajoutez une étoile !**
+
+Actualisez la page → le compteur change.
+
+```markdown
+![stars](https://img.shields.io/github/stars/raphaelpra/cours-2025-web)
+```
+
+<img src="https://img.shields.io/github/stars/raphaelpra/cours-2025-web?style=social" alt="GitHub stars">
+
+]
+]
+
+.center[Une API, c'est juste une URL qui renvoie des données 🎯]
 
 ---
 
