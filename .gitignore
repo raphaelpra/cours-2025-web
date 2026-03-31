@@ -46,3 +46,5 @@ tmp
 *.png
 !**/logo*.png
 !**/icon*.png
+
+.playwright-mcp/
