@@ -1,0 +1,22 @@
+{
+  "name": "07-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "slides": "bun run build-slides && bun run cours/serve.ts",
+    "slides-annexe": "bun run build-slides && bun run cours/serve.ts",
+    "build-slides": "bun run cours/build-slides.ts",
+    "dev": "PORT=3004 bun run demos/05-contact-api.js",
+    "motus": "PORT=3005 bun run demos/06-motus-check.js",
+    "security": "PORT=3007 bun run demos/07-security.js",
+    "cookies": "PORT=3008 bun run demos/08-cookies.js",
+    "sessions": "PORT=3009 bun run demos/09-sessions.js"
+  },
+  "dependencies": {
+    "hono": "^4.12.9"
+  },
+  "devDependencies": {
+    "wrangler": "^4.43.0"
+  }
+}

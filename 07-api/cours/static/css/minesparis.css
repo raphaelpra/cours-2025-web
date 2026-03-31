@@ -1,0 +1,166 @@
+/* charte graphique mines paris 
+   contact: Basile Marchand (basile.marchand@minesparis.psl.eu)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --blue: #005e9e;
+  --grey: #9c9e9f;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+  color: var(--blue);
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.slide_title.remark-slide-content > h1 {
+  font-size: 48pt;
+}
+
+.slide_title.remark-slide-content > h2 {
+  font-size: 40pt;
+}
+
+.remark-slide-content > h1 {
+  font-size: 38pt;
+}
+
+h2,
+h3 {
+  font-weight: 200;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+h1 {
+  margin-top: 0%;
+  margin-bottom: 1%;
+}
+
+.slide_title {
+  text-align: left;
+  padding-left: 25em;
+}
+
+div.slide_footer {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  height: 2.5%;
+  width: 100%;
+  z-index: 10;
+  padding: 1.5%;
+  transform: translate(-50%, 0%);
+  text-align: center;
+}
+
+.wrap {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.slide_footer span {
+  font-size: 10pt;
+  vertical-align: middle;
+  float: left;
+  color: var(--grey);
+}
+
+.footnote {
+  position: absolute;
+  bottom: 10%;
+  left: 15%;
+}
+
+.footnote span {
+  font-style: italic;
+}
+
+.smaller {
+  font-size: smaller;
+}
+
+div.references {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  z-index: 10;
+  padding: 1.5%;
+  width: 85%;
+  font-size: xx-small;
+  font-style: italic;
+}
+
+/* SLIDE TITLE LOGO */
+
+img.left_panel {
+  position: absolute;
+  top: 5vmin;
+  left: 5vmin;
+  height: 90%;
+}
+
+img.slide_title_mpt {
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  width: 30%;
+  transform: translate(-50%, -50%);
+}
+
+img.slide_title_armines {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+  width: 10%;
+  transform: translate(-50%, -50%);
+}
+
+img.slide_title_cnrs {
+  position: absolute;
+  top: 80%;
+  left: 75%;
+  width: 8%;
+  transform: translate(-50%, -50%);
+}
+
+/* SLIDE HEADER/FOOTER LOGO */
+
+img.slide_header_mpt {
+  position: absolute;
+  bottom: 0em;
+  left: 4em;
+  height: 4em;
+}
+
+img.slide_header_cnrs {
+  position: absolute;
+  top: 5%;
+  left: 92%;
+  height: 5%;
+}
+
+img.slide_header_armines {
+  position: absolute;
+  top: 5%;
+  left: 85%;
+  height: 5%;
+}
+
+li  {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}

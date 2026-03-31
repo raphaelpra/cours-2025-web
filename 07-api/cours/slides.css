@@ -1,0 +1,152 @@
+/* Charte graphique Mines Paris — adaptée du repo ue22-p24/backend */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+    --blue: #005e9e;
+    --grey: #9c9e9f;
+    --code-font: "JetBrains Mono", "Fira Code", monospace;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Roboto", sans-serif;
+    color: var(--blue);
+}
+
+h1 { font-weight: 400; margin-top: 0%; margin-bottom: 1%; }
+h2, h3 { font-weight: 200; margin-top: 0.1em; margin-bottom: 0.1em; }
+
+.slide_title.remark-slide-content > h1 { font-size: 48pt; }
+.slide_title.remark-slide-content > h2 { font-size: 40pt; }
+.remark-slide-content > h1 { font-size: 38pt; }
+
+/* ── Slide title logos ── */
+.slide_title {
+    text-align: left;
+    padding-left: 25em;
+}
+
+img.left_panel {
+    position: absolute;
+    top: 5vmin;
+    left: 5vmin;
+    height: 90%;
+}
+
+img.slide_title_mpt {
+    position: absolute; top: 20%; left: 70%; width: 30%;
+    transform: translate(-50%, -50%);
+}
+/* ── Slide header/footer logos ── */
+img.slide_header_mpt {
+    position: absolute; bottom: 0em; left: 4em; height: 4em;
+}
+
+/* ── Footer ── */
+div.slide_footer {
+    position: absolute; bottom: 0px; left: 50%;
+    height: 2.5%; width: 100%; z-index: 10; padding: 1.5%;
+    transform: translate(-50%, 0%);
+    text-align: center;
+}
+div.slide_footer span {
+    font-size: 10pt; vertical-align: middle; float: left;
+    color: var(--grey);
+}
+.slide_footer a { text-decoration: none; }
+.slide_footer .current-slides {
+    pointer-events: none; cursor: default; color: green;
+}
+/* push the footer to the right like in the source */
+body div.slide_footer { left: 80%; }
+
+.wrap {
+    width: 50%; display: block; margin-left: auto; margin-right: auto;
+}
+
+/* ── Footnotes ── */
+.footnote {
+    position: absolute; bottom: 10%; left: 15%;
+}
+.footnote span { font-style: italic; }
+.smaller { font-size: smaller; }
+.small { font-size: small; }
+
+div.references {
+    position: absolute; bottom: 5%; left: 5%;
+    z-index: 10; padding: 1.5%; width: 85%;
+    font-size: xx-small; font-style: italic;
+}
+
+/* ── Code blocks ── */
+pre { margin: 7px; }
+
+.remark-code {
+    font-family: var(--code-font);
+    font-size: 14px;
+    padding: 1em !important;
+    border-radius: 10px;
+    background-color: #b8d1dd !important;
+    word-wrap: break-word;
+}
+
+.remark-code-line-highlighted {
+    background-color: rgba(250, 253, 163, 0.3) !important;
+    border-radius: 3px;
+}
+
+.remark-inline-code {
+    font-family: var(--code-font);
+    background-color: rgba(135, 131, 120, 0.15);
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    color: #eb5757;
+}
+
+/* ── Copy button ── */
+button.copy-button {
+    position: absolute; top: 4px; right: 4px;
+    border-radius: 4px; padding: 2px 4px;
+    font-size: 18px; cursor: pointer;
+    border: none; background: #71abbbcc; color: #20212caa;
+}
+
+/* ── Column layout ── */
+.cols {
+    display: flex; flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.cols.bottom { align-items: flex-end; }
+
+.twenty    { width: 19%; }
+.twenty-five { width: 24%; }
+.thirty    { width: 29%; }
+.thirty-five { width: 34%; }
+.fourty    { width: 39%; }
+.fifty     { width: 47%; }
+.sixty     { width: 59%; }
+.sixty-five { width: 64%; }
+.seventy   { width: 69%; }
+.seventy-five { width: 74%; }
+.eighty    { width: 79%; }
+
+.vertbar {
+    flex: 0%; border: 1px solid black;
+    padding: 0px; margin: 1rem; max-width: 0px;
+}
+
+/* ── Misc ── */
+iframe { border-width: 0; }
+p.legend { font-size: small; text-align: center; margin: 0; }
+li { padding-top: 0.3em; padding-bottom: 0.3em; }
+
+.clignote { animation: clignote 2s linear infinite; }
+@keyframes clignote { 50% { opacity: 0; } }
+
+.align_left  { text-align: start; }
+.align_right { text-align: end; }
+.center { text-align: center; }

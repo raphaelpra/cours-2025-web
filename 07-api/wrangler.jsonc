@@ -1,0 +1,6 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "07-api-demo",
+  "main": "demos/05-contact-api.js",
+  "compatibility_date": "2026-03-31"
+}

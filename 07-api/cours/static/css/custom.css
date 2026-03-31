@@ -1,0 +1,156 @@
+pre {
+  margin: 7px;
+}
+
+.remark-code {
+  --code-font: "JetBrains Mono", serif;
+  font-family: var(--code-font);
+  font-size: 14px;
+  padding: 1em !important;
+  border-radius: 10px;
+  background-color: #b8d1dd !important;
+  word-wrap: break-word;
+}
+
+.remark-code-line-highlighted {
+  background-color: rgba(250, 253, 163, 0.3) !important;
+  border-radius: 3px;
+}
+
+.remark-inline-code {
+  font-family: var(--code-font);
+  background-color: rgba(135, 131, 120, 0.15);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  color: #eb5757;
+
+}
+
+button.copy-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background: #71abbbcc;
+  color: #20212caa;
+}
+
+.clignote {
+  animation: clignote 2s linear infinite;
+}
+
+@keyframes clignote {
+  50% {
+    opacity: 0;
+  }
+}
+
+.align_left {
+  text-align: start;
+}
+
+.align_right {
+  text-align: end;
+}
+
+.cols {
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+}
+
+.bottom {
+  align-items: flex-end
+}
+
+
+.vertbar {
+  flex: 0%;
+  border: 1px solid black;
+  padding: 0px;
+  margin: 1rem;
+  max-width: 0px;
+}
+
+.fifty {
+  width: 47%;
+}
+
+.fourty {
+  width: 39%;
+}
+
+.sixty {
+  width: 59%;
+}
+
+.thirty {
+  width: 29%;
+}
+
+.sixty-five {
+  width: 64%;
+}
+
+.twenty {
+  width: 19%;
+}
+
+.seventy {
+  width: 69%;
+}
+
+.thirty-five {
+  width: 34%;
+}
+
+.seventy-five {
+  width: 74%;
+}
+.twenty-five {
+  width: 24%;
+}
+
+.eighty {
+  width: 79%;
+}
+
+.x-video.embed.with-container {
+  border: none;
+  box-shadow: none;
+}
+
+iframe {
+  border-width: 0;
+}
+
+p.legend {
+  font-size: small;
+  text-align: center;
+  margin: 0;
+}
+
+.small {
+  font-size: small;
+}
+
+.slide_footer {
+  & a {
+    text-decoration: none;
+  }
+
+  & .current-slides {
+    pointer-events: none;
+    cursor: default;
+    color: green;
+  }
+}
+
+/* override minesparis.css by being more specific */
+body div.slide_footer {
+  left: 80%
+}

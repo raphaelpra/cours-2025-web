@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Hono</title>
+    <style>
+        body { font-family: sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; }
+        form { display: grid; gap: 12px; }
+        input, textarea, button { font: inherit; padding: 10px; }
+        textarea { min-height: 120px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+    <h1>Formulaire de contact</h1>
+    <p>Cette version sert exactement le même formulaire, mais à partir d'un fichier HTML statique.</p>
+    <form method="GET" action="/preview">
+        <label>Nom <input name="name"></label>
+        <label>Message <textarea name="message"></textarea></label>
+        <button type="submit">Prévisualiser</button>
+    </form>
+    <p>Le serveur ne construit plus la page sous forme de chaîne : il lit simplement un fichier et le renvoie.</p>
+</body>
+</html>
